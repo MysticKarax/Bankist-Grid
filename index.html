@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankist Grid Clon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icon.png" type="img/png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- TODO: Si el div solo contiene 1 elemento, no es necesario que exista ese div -->
+            <div>
+                <p id="login-title">Login To Get Started</p>
+            </div>
+            <div>
+                <img id="logo-img" src="/img/logo.png" alt="logo">
+            </div>
+            <div id="header-inputs-container">
+                <!-- TODO: Los IDs se hacen principalmente para usarlos en JS, no en CSS -->
+                <input id="user-login-input" type="text" placeholder="USER">
+                <input id="pin-login-input" type="password" placeholder="PIN">
+                <button class="login-btn">&rarr;</button>
+            </div>
+            <!-- TODO: PONER UNA BARRA QUE SEPARE EL HEADER DE MAIN -->
+        </nav>
+    </header>
+    <!-- MAIN CONTENT -->
+    <main id="content">
+        <!-- BALANCE -->
+        <section id="current-balance-container">
+            <div id="current-balance-text-container">
+                <p class="balance-title">Current Balance</p>
+                <p class="subtitle" id="date-p">As of <span id="balance-date">9/4/2036</span></p>
+            </div>
+            <div id="current-balance-number-container">
+                <p id="current-balance-number">3840€</p>
+            </div>
+        </section>
+        <!-- MOVEMENTS -->
+        <section id="movements-container">
+            <div class="movements__row">
+              <div class="movements__type movements__type--deposit">
+                2 deposit</div>
+              <div class="movements__date">3 days ago</div>
+              <div class="movements__value">4 000€</div>
+            </div>
+            <div class="movements__row">
+              <div class="movements__type movements__type--withdrawal">
+                1 withdrawal</div>
+              <div class="movements__date">24/01/2037</div>
+              <div class="movements__value">-378€</div>
+            </div>
+        </section>
+        <!-- INTERACTIVE INPUTS -->
+        <section id="interactive-inputs-container">
+            <div id="transfer-money-container">
+                <p class="title">Transfer Money</p>
+                <input id="transfer-to-input" type="text">
+                <input id="transfer-amount-input" type="text">
+                <button id="transfer-btn">&rarr;</button>
+                <div id="transfer-money-input-subtitle">
+                    <p id="transfer-to-p" class="subtitle">Transfer To</p>
+                    <p id="transfer-amount-p" class="subtitle">Amount</p>
+                </div>
+            </div>
+            <div id="request-loan-container">
+                <p class="title">Request Loan</p>
+                <input id="request-loan-input" type="number">
+                <button id="request-loan-btn">&rarr;</button>
+                <p id="loan-amount-p" class="subtitle">Amount</p>
+            </div>
+            <div id="close-account-container">
+                <p class="title">Close Account</p>
+                <input id="close-user-input" type="text">
+                <input id="close-pin-input" type="password" type="text">
+                <button id="close-account-btn">&rarr;</button>
+                <div id="close-account-input-subtitle">
+                    <p id="confirm-user-p" class="subtitle">Confirm User</p>
+                    <p id="confirm-pin-p" class="subtitle">Confirm PIN</p>
+                </div>
+            </div>
+        </section>
+        <!-- SUMMARY -->
+        <footer>
+            <div id="summary-container">
+                <p id="in-text">IN <span id="total-deposit">5020€</span></p>
+                <p id="out-text">OUT <span id="total-withdrawal">1180€</span></p>
+                <p id="interest-text">INTEREST <span id="total-interest">59.4€</span></p>
+            </div>
+            <!-- TODO: El btn sort debe ir sin div y estar dentro de summary -->
+            <div id="sort-container">
+                <button id="sort-btn">&downarrow; SORT</button>
+            </div>
+            <div id="logout-container">
+                <p class="subtitle">You will be logged out in <span id="timer">05:00</span></p>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

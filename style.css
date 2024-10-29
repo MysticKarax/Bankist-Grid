@@ -1,0 +1,814 @@
+/* TODO: NO USAR WIDTHS A MENOS QUE USE EL 100% */
+/* TODO: ES MALA PRACTICA TENER TANTO ID Y ALINEAR ELEMENTOS INDIVIDUALMENTE */
+/* GENERAL STYLES */
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #f3f3f3;
+  font-family: "Poppins", sans-serif;
+}
+
+input {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 0rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 8rem;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  transition: all 0.3s;
+  /* TODO: LAS UNICAS TRANSICIONES QUE DEBEN TENER LOS BOTONES SON HOVER Y ACTIVE */
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* STYLING HEADER */
+
+header nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  padding-bottom: 2rem;
+}
+
+header nav input {
+  border-radius: 20px;
+  width: 8rem;
+  padding: 0.7rem 0;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+#login-title {
+  font-size: 1.2rem;
+  font-weight: 450;
+  text-align: center;
+}
+
+#logo-img {
+  height: 60px;
+  padding-bottom: 1rem;
+}
+
+/* MAIN CONTENT */
+
+#content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "balance"
+    "movements"
+    "footer"
+    "interactive-inputs";
+  place-content: center;
+  opacity: 0;
+  transition: all 1s;
+}
+
+#current-balance-container {
+  grid-area: balance;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 2rem;
+}
+
+#current-balance-text-container p {
+  margin: 0px;
+}
+
+#current-balance-number {
+  font-weight: 400;
+  font-size: 36px;
+  margin: 0;
+}
+
+.balance-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+#balance-date,
+#date-p {
+  color: #888;
+}
+
+/* MOVEMENTS */
+
+#movements-container {
+  grid-area: movements;
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow-y: scroll;
+  margin: 0 2rem 2rem 2rem;
+  height: 25rem;
+}
+
+.movements__row {
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.movements__type {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.1rem 1rem;
+  border-radius: 10rem;
+  margin-right: 2rem;
+}
+
+.movements__date {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #666;
+}
+
+.movements__value {
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+.movements__type--deposit {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+.movements__type--withdrawal {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+/* STYLING INPUTS */
+
+#interactive-inputs-container {
+  grid-area: interactive-inputs;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  height: 100%;
+  row-gap: 20px;
+  width: 80%;
+  /* TODO: DEBE USAR EL 100% DE WIDTH*/
+  padding: 1rem 1.5rem;
+  transition: all 0.3s;
+}
+
+#transfer-money-container,
+#request-loan-container,
+#close-account-container {
+  width: 100%;
+  border-radius: 15px;
+  padding-left: 35px;
+  /* TODO: USAR GRID PARA ALINEAR TODOS LOS ELEMENTOS CORRECTAMENTE */
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+}
+
+#interactive-inputs-container div button {
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.3rem 1rem 0.4rem 1rem;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  /* TODO: LAS UNICAS TRANSICIONES QUE DEBEN TENER LOS BOTONES SON HOVER Y ACTIVE */
+}
+
+#transfer-money-input-subtitle {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+#close-account-input-subtitle {
+  display: flex;
+  align-items: center;
+}
+
+#transfer-money-container {
+  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+#request-loan-container {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+#close-account-container {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+/* STYLING FOOTER */
+
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+#summary-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 0 3rem;
+  text-align: center;
+}
+
+#sort-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  grid-area: sort;
+  padding: 0;
+}
+
+#sort-container button#sort-btn {
+  font-size: 0.9rem;
+}
+
+#logout-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+#timer {
+  font-weight: bold;
+}
+
+#total-deposit,
+#total-interest,
+#total-withdrawal {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#total-deposit,
+#total-interest {
+  color: #71cb7d;
+}
+
+#total-withdrawal {
+  color: #f5465d;
+}
+
+#transfer-to-p {
+  padding-left: 2rem;
+}
+
+#transfer-amount-p {
+  padding-left: 4.5rem;
+}
+
+#loan-amount-p {
+  padding-left: 2.5rem;
+}
+
+#confirm-user-p {
+  padding-left: 1.5rem;
+}
+#confirm-pin-p {
+  padding-left: 3.5rem;
+}
+
+/* MEDIA QUERIES */
+
+@media (width >= 768px) {
+  header nav {
+    flex-direction: row;
+    padding: 0 2rem;
+  }
+
+  input {
+    padding: 0.6rem 1rem;
+  }
+
+  #logo-img {
+    padding-top: 1rem;
+  }
+
+  #movements-container {
+    margin: 0 1rem;
+    height: 30rem;
+  }
+
+  #interactive-inputs-container div button {
+    padding: 0.2rem 1rem 0.3rem 1rem;
+    font-size: 1.4rem;
+  }
+
+  #transfer-to-p {
+    padding-left: 3rem;
+  }
+
+  #transfer-amount-p {
+    padding-left: 7rem;
+  }
+
+  #loan-amount-p {
+    padding-left: 3.5rem;
+  }
+
+  #confirm-user-p {
+    padding-left: 2.5rem;
+  }
+  #confirm-pin-p {
+    padding-left: 5.5rem;
+  }
+
+  #sort-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 3rem;
+  }
+}
+
+@media (width >= 1200px) {
+  /* body{
+        background-color: aqua;
+    } */
+
+  input {
+    padding: 0.7rem 0;
+  }
+
+  header nav {
+    flex-direction: row;
+    padding: 1rem 1.6rem;
+  }
+
+  #movements-container {
+    margin: 0 1rem;
+    height: 30rem;
+  }
+
+  #interactive-inputs-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  #interactive-inputs-container div button {
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.6rem 0.8rem 0.6rem 0.8rem;
+    /* margin: 0; */
+  }
+
+  #transfer-money-container {
+    width: 27%;
+    margin-left: 1rem;
+  }
+  #transfer-to-p {
+    padding-left: 2rem;
+  }
+
+  #transfer-amount-p {
+    padding-left: 4.5rem;
+  }
+
+  #request-loan-container {
+    width: 27%;
+  }
+
+  #loan-amount-p {
+    padding-left: 2.5rem;
+  }
+  #close-account-container {
+    width: 27%;
+    margin-right: 1rem;
+  }
+
+  #confirm-user-p {
+    padding-left: 1.5rem;
+  }
+
+  #confirm-pin-p {
+    padding-left: 3.5rem;
+  }
+
+  footer #sort-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 2rem;
+  }
+}
+
+@media (width >= 1025px) {
+  /* body{
+        background-color: blueviolet;
+    } */
+}
+
+/* / xl / */
+@media (width >= 1280px) {
+  /* body{
+        background-color: white;
+    } */
+
+  input {
+    padding: 0.4rem 0;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* STYLING HEADER */
+
+  header nav {
+    padding: 0 3rem;
+  }
+
+  #logo-img {
+    height: 60px;
+    padding-top: 20px;
+  }
+
+  /* MAIN CONTENT */
+
+  #content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    height: 75%;
+    grid-template-areas:
+      "balance balance"
+      "movements interactive"
+      "footer footer";
+    gap: 2rem;
+    width: 90%;
+    justify-items: center;
+    align-items: stretch;
+    margin-left: 7rem;
+  }
+
+  #current-balance-container {
+    /* margin: 0 24rem 0 27rem; */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #current-balance-number-container {
+    margin-right: 9rem;
+  }
+
+  #current-balance-text-container {
+    margin: 0;
+  }
+
+  #movements-container {
+    grid-area: movements;
+    margin: 0;
+    width: 100%;
+  }
+
+  #interactive-inputs-container {
+    grid-area: interactive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+    row-gap: 20px;
+    width: 100%;
+    padding: 0;
+  }
+
+  #transfer-money-container,
+  #request-loan-container,
+  #close-account-container {
+    width: 70%;
+    margin: 0;
+    padding-left: 35px;
+    height: 9.1rem;
+  }
+
+  #interactive-inputs-container div button {
+    padding: 0.15rem 1rem;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  #transfer-to-p {
+    padding-left: 2rem;
+  }
+
+  #transfer-amount-p {
+    padding-left: 4.5rem;
+  }
+
+  #loan-amount-p {
+    padding-left: 2.5rem;
+  }
+
+  #confirm-user-p {
+    padding-left: 1.5rem;
+  }
+  #confirm-pin-p {
+    padding-left: 3.5rem;
+  }
+
+  footer {
+    grid-area: footer;
+    flex-direction: row;
+    margin-left: -5rem;
+    width: 100%;
+  }
+
+  #summary-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 46.33%;
+    padding: 0;
+  }
+
+  #sort-container {
+    margin-left: -16rem;
+  }
+
+  #logout-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 6rem;
+  }
+}
+
+/* / 2xl / */
+@media (width >= 1400px) {
+  input {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+  }
+
+  /* STYLING HEADER */
+
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    flex-direction: row; /* Cambiar de columna a fila */
+  }
+
+  header nav input {
+    border-radius: 20px;
+    width: 8rem;
+    padding: 0.7rem 0;
+    background-color: white;
+  }
+
+  #login-title {
+    font-size: 1.2rem;
+    font-weight: 450;
+    text-align: center;
+  }
+
+  #logo-img {
+    height: 60px;
+    padding-top: 20px;
+  }
+
+  #content {
+    display: grid;
+    grid-template-columns: 30% 20%;
+    grid-template-rows: auto;
+    height: 75%;
+    grid-template-areas:
+      "balance balance"
+      "movements interactive"
+      "footer footer";
+    gap: 20px;
+    width: 100%;
+    place-content: center;
+    margin: 0;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+
+  #current-balance-container {
+    width: 100%;
+  }
+
+  #current-balance-number-container {
+    margin-right: -1rem;
+    padding: 0;
+  }
+
+  #current-balance-text-container {
+    margin: 0;
+    padding: 0;
+  }
+
+  #movements-container {
+    grid-area: movements;
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+  }
+
+  .movements__row {
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .movements__type {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.1rem 1rem;
+    border-radius: 10rem;
+    margin-right: 2rem;
+  }
+
+  .movements__date {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #666;
+  }
+
+  .movements__value {
+    font-size: 1rem;
+    margin-left: auto;
+  }
+
+  #interactive-inputs-container {
+    grid-area: interactive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+    row-gap: 20px;
+    width: 24rem;
+    padding: 0;
+  }
+
+  #transfer-money-container,
+  #request-loan-container,
+  #close-account-container {
+    width: 100%;
+    border-radius: 15px;
+    padding-left: 35px;
+    margin: 0;
+    height: 9rem;
+  }
+
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  #interactive-inputs-container div button {
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.1rem 1rem 0.3rem 1rem;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  #transfer-money-input-subtitle {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  #transfer-to-p {
+    padding-left: 2rem;
+    margin: 0;
+  }
+
+  #transfer-amount-p {
+    padding-left: 5rem;
+  }
+
+  #loan-amount-p {
+    padding-left: 2.7rem;
+  }
+
+  #request-loan-input,
+  #request-loan-btn,
+  #loan-amount-p {
+    margin-top: 0.5rem;
+  }
+
+  #close-account-input-subtitle {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between;    */
+  }
+
+  #confirm-user-p {
+    padding-left: 1.5rem;
+  }
+  #confirm-pin-p {
+    padding-left: 4rem;
+  }
+
+  footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  #summary-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 46.33%;
+    padding: 0;
+    margin-left: -1rem;
+  }
+
+  #sort-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 33.33%;
+    margin-left: -7.6rem;
+    padding: 0;
+  }
+
+  #sort-container button#sort-btn {
+    font-size: 0.9rem;
+    width: 73%;
+    padding: 0;
+    margin: 0;
+  }
+
+  #logout-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 20%;
+    margin-right: -2rem;
+    padding: 0;
+  }
+
+  #timer {
+    font-weight: bold;
+  }
+
+  #total-deposit,
+  #total-interest,
+  #total-withdrawal {
+    font-size: 1.5rem;
+  }
+}
